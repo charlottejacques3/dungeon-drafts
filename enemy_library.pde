@@ -138,7 +138,7 @@ class Hacker extends Enemy {
     super.act();
 
     //make it hack
-    if (dist(loc.x, loc.y, myHero.loc.x, myHero.loc.y) <= hackingRange/2) {
+    if (dist(loc.x, loc.y, myHero.loc.x, myHero.loc.y) <= hackerRange/2) {
       fill(red);
       text("you've been hacked!", 650, 200);
       hackTimer++;

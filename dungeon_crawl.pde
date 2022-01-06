@@ -72,7 +72,6 @@ PImage fingerGun;
 
 //enemy variables
 PImage follower, shooter, creator, magician, giant, hacker, dungeonMaster, fireball;
-int hackingRange = 75;
 
 //colour coded map theme
 color maroon = #5E241B; //follower in middle

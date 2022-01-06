@@ -20,12 +20,12 @@ class RadioWave extends GameObject {
 
   void act() {
     size+=3;
-    if (hackingRange < size) hackingRange = size;
+    if (myHacker.hackerRange < size) myHacker.hackerRange = size;
 
     //disappear when going off the screen
     if (size > 495) {
       hp = 0;
-      hackingRange-=30; //hacking range is now the size of the next biggest circle
+      myHacker.hackerRange-=30; //hacking range is now the size of the next biggest circle
     }
   }
 }
