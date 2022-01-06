@@ -1,4 +1,4 @@
-//new: super(roomX, roomY, locationX, locationY, die by touching?, image, xp);
+//super(roomX, roomY, locationX, locationY, die by touching?, image, xp);
 
 class Follower extends Enemy {
 
@@ -111,7 +111,7 @@ class Giant extends Enemy {
 
 class Hacker extends Enemy {
 
-  int signalTimer, signalThreshold, hackTimer, hackThreshold, hackedItem;
+  int signalTimer, signalThreshold, hackTimer, hackThreshold, hackedItem, hackerRange;
 
   Hacker(int roomX, int roomY, float x, float y) {
     super(roomX, roomY, x, y, false, hacker, 5);
@@ -120,21 +120,22 @@ class Hacker extends Enemy {
     hackTimer = 0;
     hackThreshold = 50;
     hackedItem = 0; //int(random(0, 2)); //lives = 0; xp = 1
+    hackerRange = 75;
   }
 
   void show() {
     super.show();
+    signalTimer++;
 
     //show radio signals
     if (signalTimer >= signalThreshold) {
-      myObjects.add(new RadioWave(loc.x, loc.y, roomX, roomY));
+      myObjects.add(new RadioWave(loc.x, loc.y, roomX, roomY, this));
       signalTimer = 0;
     }
   }
 
   void act() {
     super.act();
-    signalTimer++;
 
     //make it hack
     if (dist(loc.x, loc.y, myHero.loc.x, myHero.loc.y) <= hackingRange/2) {

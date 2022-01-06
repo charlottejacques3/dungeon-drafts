@@ -11,7 +11,6 @@ class Weapon {
     bulletSpeed = 30;
     bulletSize = 5;
     bulletType = "normal";
-    bulletColour = gold;
     
   }
 
@@ -33,7 +32,8 @@ class Weapon {
     if (shotTimer >= shotThreshold) {
       PVector aimVector = new PVector(mouseX-myHero.loc.x, mouseY-myHero.loc.y);
       aimVector.setMag(bulletSpeed);
-      myObjects.add(new RegBullet(aimVector, bulletColour, bulletSize, bulletType));
+      noStroke();
+      myObjects.add(new RegBullet(aimVector, gold, bulletSize, bulletType));
       shotTimer = 0;
       myHero.ammo--;
     }

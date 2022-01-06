@@ -49,17 +49,18 @@ void gameover() {
 void partReset() {
   int i = 0;
   while (i < myObjects.size()) {
-    GameObject o = myObjects.get(i);
-    o.hp = 0;
-    i++;
+    myObjects.remove(i);
   }
   mode = GAME;
+  myObjects.add(myHero);
   myHero.hp = 5;
   myHero.ammo = 100;
   myHero.roomX = 1;
   myHero.roomY = 1;
   myHero.loc = new PVector(width/2, height/2);
+  myHero.currentAction = heroDown;
   loadEnemies();
+  myHero.immunTimer = 1;
 }
 
 void fullReset() {

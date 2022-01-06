@@ -1,4 +1,4 @@
-class Hero extends GameObject {
+class Hero extends GameObject { //<>//
 
   float speed;
   Weapon myWeapon;
@@ -29,6 +29,7 @@ class Hero extends GameObject {
       fill(lightBlue, t);
       circle(loc.x, loc.y, 100);
     }
+
     currentAction.show(loc.x, loc.y, size/1.5, size);
   }
 
@@ -91,7 +92,7 @@ class Hero extends GameObject {
 
       //make hero die when shot by enemy bullets
       if (o instanceof EnemyBullet && colliding(o) && immunTimer >= immunThreshold && inRoom(o)) {
-        //hp--;
+        hp--;
         o.hp = 0;
         immunTimer = 0;
         myHero.t = 200;

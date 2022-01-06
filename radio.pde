@@ -1,13 +1,15 @@
 class RadioWave extends GameObject {
 
   String message;
+  Hacker myHacker;
 
-  RadioWave(float x, float y, int rx, int ry) {
+  RadioWave(float x, float y, int rx, int ry, Hacker h) {
     loc = new PVector(x, y);
     size = 75;
     hp = 1;
     roomX = rx;
     roomY = ry;
+    myHacker = h;
   }
 
   void show() {

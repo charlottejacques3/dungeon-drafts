@@ -1,15 +1,15 @@
-void game() {
-  
+void game() { //<>//
+
   //set up game
   drawRoom();
   drawObjects();
 
   //show darkness
-  //int d = 0;
-  //while (d < darkness.size()) {
-  //  darkness.get(d).show();
-  //  d++;
-  //}
+  int d = 0;
+  while (d < darkness.size()) {
+    darkness.get(d).show();
+    d++;
+  }
 
   //mini map
   tint(255);
@@ -20,14 +20,14 @@ void game() {
 
   //pause
   if (mouseReleased) mode = PAUSE;
-  
+
   //text(mouseX, 400, 400);
   fill(red);
   textFont(font);
   textSize(25);
   text("lives: " + myHero.hp, 650, 100);
   text("ammo: " + myHero.ammo, 650, 150);
-  
+
   //lose game
   if (myHero.hp <= 0 || numEnemies <= 0) mode = GAMEOVER;
 }
@@ -72,7 +72,7 @@ void drawObjects() {
     GameObject o = myObjects.get(i);
     if (o.roomX == myHero.roomX && o.roomY == myHero.roomY) { //only run code if in same room as hero
       if (o instanceof Enemy) {
-        if (dist(myHero.loc.x, myHero.loc.y, o.loc.x, o.loc.y) < 525) { //only make the enemy act if it is in range of the darkness
+        if (dist(myHero.loc.x, myHero.loc.y, o.loc.x, o.loc.y) < 300) { //only make the enemy act if it is in range of the darkness
           o.show();
           o.act();
         } else o.show();

@@ -79,7 +79,7 @@ class Enemy extends GameObject {
 
       //make the hero lose lives when in range of enemy
       if (o instanceof Hero && rangeEnemy && colliding(o) && myHero.immunTimer >= myHero.immunThreshold && inRoom(o)) {
-        //myHero.hp -= damage;
+        myHero.hp -= damage;
         myHero.immunTimer = 0;
         myHero.t = 200;
       }

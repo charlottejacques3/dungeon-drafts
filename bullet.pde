@@ -7,7 +7,6 @@ class Bullet extends GameObject {
     size = s;
     fill = c;
     v = direction;
-    //v.add(direction); ??
     loc = new PVector(x, y);
     type = t;
     roomX = myHero.roomX;
